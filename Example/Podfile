@@ -1,0 +1,18 @@
+use_frameworks!
+platform :ios, '9.0'
+
+plugin 'cocoapods-art', :sources => [
+  'cocoapods-cocoapods',
+  'NFMC.cocoapods.Release'
+]
+
+target 'SwiftBank_Example' do
+  pod 'SwiftLint'
+  pod 'SwiftBank', :path => '../'
+
+  target 'SwiftBank_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
