@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (5.4.1)
+  - SwiftBank (0.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - SwiftBank (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  SwiftBank:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  SwiftBank: 7b882f20facc7c4d5b730277b45532e8d25707d0
+
+PODFILE CHECKSUM: 5548a2119ddae0a81db128103abd23ae32d96ed4
+
+COCOAPODS: 1.10.1

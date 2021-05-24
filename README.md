@@ -18,4 +18,4 @@ matomairo@gmail.com, migueltomairo@bcp.com.pe
 ## License
 
 SwiftBank
-# SwiftBank_Static
+# SwiftBank_Dinam

@@ -1,0 +1,224 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TPCSDKSwift
+import Foundation
+import PassKit
+import Security
+import Swift
+import UIKit
+import WatchConnectivity
+import os.log
+import os
+@objc @objcMembers public class FundingCard : ObjectiveC.NSObject {
+  public init(scheme: TPCSDKSwift.CardScheme? = nil, encryptedPayload: Swift.String? = nil, primaryAccountIdentifier: Swift.String? = nil)
+  @available(swift, obsoleted: 3.1)
+  @objc public init(scheme: TPCSDKSwift.CardScheme, encryptedPayload: Swift.String? = nil)
+  @available(swift, obsoleted: 3.1)
+  @objc public init(primaryAccountIdentifier: Swift.String? = nil)
+  public var scheme: TPCSDKSwift.CardScheme?
+  @objc public var encryptedPayload: Swift.String?
+  @objc public var primaryAccountIdentifier: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class CardDigitizationResult : ObjectiveC.NSObject {
+  @objc public var result: TPCSDKSwift.IsCardDigitizedResult
+  @objc public var localDevice: TPCSDKSwift.IsCardDigitizedResult
+  @objc public var localPKPass: PassKit.PKPass?
+  @objc public var remoteDevice: TPCSDKSwift.IsCardDigitizedResult
+  @objc public var remotePKPass: PassKit.PKPass?
+  @objc deinit
+}
+public struct Device : Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public var type: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public class Token : ObjectiveC.NSObject, Swift.Codable {
+  public var id: Swift.String?
+  public var state: Swift.String?
+  public var suffix: Swift.String?
+  public var expiryDate: Swift.String?
+  public var device: TPCSDKSwift.Device?
+  public var tokenRequestor: TPCSDKSwift.TokenRequestor?
+  @objc override dynamic public init()
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public class TokenRequestorAsset : ObjectiveC.NSObject, Swift.Codable {
+  public var type: Swift.String?
+  public var data: Swift.String?
+  public var height: Swift.Int?
+  public var width: Swift.Int?
+  @objc override dynamic public init()
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public class CardList : ObjectiveC.NSObject, Swift.Codable {
+  public var id: Swift.String?
+  public var state: Swift.String?
+  public var expiryDate: Swift.String?
+  public var type: Swift.String?
+  public var primaryScheme: Swift.String?
+  public var auxiliaryScheme: Swift.String?
+  public var userAccount: Swift.String?
+  public var bankCode: Swift.String?
+  public var prefix: Swift.String?
+  public var suffix: Swift.String?
+  public var psn: Swift.String?
+  public var cardholderName: Swift.String?
+  public var registrationCode: Swift.String?
+  public var tncUrl: Swift.String?
+  public var imageUrl: Swift.String?
+  public var tokenUniqueReferences: [Swift.String]?
+  public var panUniqueReferences: [Swift.String]?
+  @objc override dynamic public init()
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public class CardAsset : ObjectiveC.NSObject, Swift.Codable {
+  public var type: Swift.String?
+  public var data: Swift.String?
+  public var height: Swift.Int?
+  public var width: Swift.Int?
+  @objc override dynamic public init()
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc public class PushMethod : ObjectiveC.NSObject, Swift.Codable {
+  public var pushHandler: Swift.String?
+  public var platformType: Swift.String?
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@objc public class TokenRequestor : ObjectiveC.NSObject, Swift.Codable {
+  public var id: Swift.String?
+  public var name: Swift.String?
+  public var logoURL: Swift.String?
+  public var logoId: Swift.String?
+  public var pushMethods: [TPCSDKSwift.PushMethod]?
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+}
+@objc @objcMembers public class PendingActivationPass : ObjectiveC.NSObject {
+  @objc public var localPKPass: PassKit.PKPass?
+  @objc public var remotePKPass: PassKit.PKPass?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum SdkVariant : Swift.Int {
+  case PPROD
+  case PROD
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum SdkConfigureResult : Swift.Int {
+  case OK
+  case Fail
+  case Error
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum IsCardDigitizedResult : Swift.Int {
+  case CardNotDigitized
+  case CardAlreadyDigitized
+  case Error
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum CardScheme : Swift.Int {
+  case Mastercard
+  case Visa
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum TokenState : Swift.Int {
+  case Suspend
+  case Resume
+  case Delete
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum CardAssetSize : Swift.Int {
+  case S
+  case M
+  case L
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @objcMembers final public class TPCSDK : ObjectiveC.NSObject {
+  @objc public static let tpcsdkVersion: Swift.String
+  @objc public static func reset()
+  @objc public static func configure(variant: TPCSDKSwift.SdkVariant, issuerId: Swift.String) -> TPCSDKSwift.SdkConfigureResult
+  @objc public static func configure(url: Swift.String, issuerId: Swift.String) -> TPCSDKSwift.SdkConfigureResult
+  @objc public static func isCardDigitized(card: TPCSDKSwift.FundingCard? = nil, primaryAccountIdentifier: Swift.String? = nil, completion: @escaping (Swift.String?, TPCSDKSwift.IsCardDigitizedResult) -> Swift.Void)
+  @objc public static func getCardDigitizationResult(card: TPCSDKSwift.FundingCard? = nil, primaryAccountIdentifier: Swift.String? = nil, completion: @escaping (Swift.String?, TPCSDKSwift.CardDigitizationResult) -> Swift.Void)
+  @objc public static func provision(fromController controller: UIKit.UIViewController, primaryAccountSuffix: Swift.String, cardholderName: Swift.String?, scheme: TPCSDKSwift.CardScheme, encryptedPayload: Swift.String, authorizationCode: Swift.String, provisionDelegate: TPCSDKSwift.TPCSDKProvisionDelegate? = nil)
+  @objc public static func getPendingActivationPass(card: TPCSDKSwift.FundingCard, completion: @escaping (TPCSDKSwift.PendingActivationPass?) -> Swift.Void)
+  @objc public static func activatePass(pass: PassKit.PKPass, card: TPCSDKSwift.FundingCard, authorizationCode: Swift.String, nonce: Swift.String, completion: @escaping (Swift.Bool, Swift.Error?) -> Swift.Void)
+  @objc public static func getTokens(card: TPCSDKSwift.FundingCard, completion: @escaping ([TPCSDKSwift.Token]?) -> Swift.Void)
+  @objc public static func getTokenRequestorAsset(assetId: Swift.String, completion: @escaping ([TPCSDKSwift.TokenRequestorAsset]?) -> Swift.Void)
+  @objc public static func updateTokenState(tokenId: Swift.String, tokenRequestorId: Swift.String, scheme: TPCSDKSwift.CardScheme, authorizationCode: Swift.String, action: TPCSDKSwift.TokenState, completion: @escaping (Swift.Bool) -> Swift.Void)
+  @objc public static func getCards(userId: Swift.String, authorizationCode: Swift.String, kyc: Swift.String, completion: @escaping ([TPCSDKSwift.CardList]?) -> Swift.Void)
+  @objc public static func getCardAsset(cardId: Swift.String, kyc: Swift.String, size: TPCSDKSwift.CardAssetSize, completion: @escaping ([TPCSDKSwift.CardAsset]?) -> Swift.Void)
+  @objc public static func getPayload(authorizationCode: Swift.String, cardId: Swift.String, kyc: Swift.String, completion: @escaping (Swift.String?) -> Swift.Void)
+  @objc public static func getEligibleTokenRequestor(card: TPCSDKSwift.FundingCard, publicKeyIdentifier: Swift.String, completion: @escaping ([TPCSDKSwift.TokenRequestor]?) -> Swift.Void)
+  @objc public static func schemePushProvision(card: TPCSDKSwift.FundingCard, publicKeyIdentifier: Swift.String, authorizationCode: Swift.String, termsAndConditionsAccepted: Swift.Bool, callbackUrl: Swift.String, callbackType: Swift.String, pushHandler: Swift.String, completion: @escaping (Swift.String?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol TPCSDKProvisionDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func onProvisionCompletion(pass: PassKit.PKPaymentPass?, error: Swift.Error?)
+}
+extension TPCSDKSwift.SdkVariant : Swift.Equatable {}
+extension TPCSDKSwift.SdkVariant : Swift.Hashable {}
+extension TPCSDKSwift.SdkVariant : Swift.RawRepresentable {}
+extension TPCSDKSwift.SdkConfigureResult : Swift.Equatable {}
+extension TPCSDKSwift.SdkConfigureResult : Swift.Hashable {}
+extension TPCSDKSwift.SdkConfigureResult : Swift.RawRepresentable {}
+extension TPCSDKSwift.IsCardDigitizedResult : Swift.Equatable {}
+extension TPCSDKSwift.IsCardDigitizedResult : Swift.Hashable {}
+extension TPCSDKSwift.IsCardDigitizedResult : Swift.RawRepresentable {}
+extension TPCSDKSwift.CardScheme : Swift.Equatable {}
+extension TPCSDKSwift.CardScheme : Swift.Hashable {}
+extension TPCSDKSwift.CardScheme : Swift.RawRepresentable {}
+extension TPCSDKSwift.TokenState : Swift.Equatable {}
+extension TPCSDKSwift.TokenState : Swift.Hashable {}
+extension TPCSDKSwift.TokenState : Swift.RawRepresentable {}
+extension TPCSDKSwift.CardAssetSize : Swift.Equatable {}
+extension TPCSDKSwift.CardAssetSize : Swift.Hashable {}
+extension TPCSDKSwift.CardAssetSize : Swift.RawRepresentable {}

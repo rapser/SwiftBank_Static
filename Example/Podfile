@@ -1,13 +1,13 @@
 use_frameworks!
-platform :ios, '9.0'
+platform :ios, '11.0'
 
-plugin 'cocoapods-art', :sources => [
-  'cocoapods-cocoapods',
-  'NFMC.cocoapods.Release'
-]
+# plugin 'cocoapods-art', :sources => [
+#   'cocoapods-cocoapods',
+#   'NFMC.cocoapods.Release'
+# ]
 
 target 'SwiftBank_Example' do
-  pod 'SwiftLint'
+  pod 'Alamofire', '~> 5.2'
   pod 'SwiftBank', :path => '../'
 
   target 'SwiftBank_Tests' do

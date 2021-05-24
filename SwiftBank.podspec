@@ -28,17 +28,24 @@ TODO: Add long description of the pod here.
   s.author           = { 'matomairo@gmail.com' => 'migueltomairo@bcp.com.pe' }
   s.source           = { :git => 'https://github.com/matomairo@gmail.com/SwiftBank.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.vendored_frameworks = "SwiftBank/TPCSDK/TPCSDKSwift.xcframework"
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'SwiftBank/Classes/**/*'
+  
+#  s.user_target_xcconfig = {
+#        'SWIFT_INCLUDE_PATHS' => '"\$(PODS_ROOT)/SwiftBank/TPCSDK/TPCSDKSwift.xcframework"'
+#      }
   
   # s.resource_bundles = {
   #   'SwiftBank' => ['SwiftBank/Assets/*.png']
   # }
 
+#  s.xcconfig = { 'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES' }
+#  s.static_framework = true
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'BCPCoreNetwork'
-    s.dependency 'BCPCoreResources'
+  # s.dependency 'BCPCoreNetwork'
+  # s.dependency 'BCPCoreResources'
 end
